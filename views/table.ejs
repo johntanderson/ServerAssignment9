@@ -1,21 +1,21 @@
 <%- include("./partials/header") %>
 <h1><%=title%></h1>
 <table class="table table-sm">
-    <% if (fields.length > 0) { %>
+    <%if(data.length > 0){%>
         <thead><tr>
-            <% fields.forEach((field)=>{ %>
+            <%data[0].forEach((field)=>{%>
                 <th><%=field%></th>
-            <% }); %>
+            <%});%>
         </tr></thead>
-    <% } %>
+    <%}%>
     <tbody>
-    <% data.forEach((course)=>{ %>
+    <% for (var i=1; i<data.length; i++){ %>
         <tr>
-            <% for (let key in course){ %>
-                <td><%=course[key]%></td>
+            <% for (var j=0; j<data[i].length; j++){ %>
+                <td><%=data[i][j]%></td>
             <% } %>
         </tr>
-    <% }) %>
+    <% } %>
     </tbody>
 </table>
 <%- include("./partials/footer") %>
